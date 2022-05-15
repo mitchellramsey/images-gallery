@@ -25,6 +25,8 @@ app.config["DEBUG"] = DEBUG
 def new_image():
     """Grabs and returns random image from Unsplash API with provided query"""
     word = request.args.get("query")
+    if not word:
+        raise ValueError("The search query cannot be empty. Please provide a value")
     headers = {"Authorization": "Client-ID " + UNSPLASH_KEY, "Accept-Version": "v1"}
     payload = {"query": word}
     response = requests.get(url=UNSPLASH_URL, headers=headers, params=payload)
