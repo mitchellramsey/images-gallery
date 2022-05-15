@@ -5,11 +5,18 @@
     "javascriptreact"
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
   },
   "editor.tabSize": 2,
   "python.defaultInterpreterPath": "api/.venv/bin/python3",
+  "python.linting.pycodestyleEnabled": true,
+  "python.linting.pycodestyleArgs": [
+    "--max-line-length=88"
+  ],
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
   "[python]": {
+    "editor.formatOnSave": true,
     "editor.tabSize": 4
   }
 }
