@@ -17,6 +17,7 @@ const App = () => {
       e.preventDefault();
       const res = await fetch(`${API_URL}/new-image?query=${word}`);
       const data = await res.json();
+      if (!data.urls) throw new Error('Picture Not Found');
       setImages([{ ...data, title: word }, ...images]);
       setWord('');
     } catch (err) {
@@ -49,5 +50,3 @@ const App = () => {
 };
 
 export default App;
-
-<Welcome />;
